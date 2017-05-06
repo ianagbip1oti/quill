@@ -7,6 +7,13 @@ setup(name="quill",
       author_email="DeflatedPickle@gmail.com",
       url="https://github.com/DeflatedPickle/adventure",
       license="MIT",
+      setup_requires = [
+          "pytest-runner==2.11.1"
+      ],
+      tests_require = [
+          "pytest==3.0.7",
+          "pytest-cov==2.4.0"
+      ],
       classifiers=[
           "Intended Audience :: Developers",
           "License :: OSI Approved :: MIT License",
