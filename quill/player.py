@@ -18,26 +18,19 @@ class Player(object):
 
     def heal(self, amount: int):
         """Heals the player by a given amount."""
-        for i in range(amount):
-            if self.health <= self.total_health:
-                self.health += 1
-
+        self.health = min(self.total_health, self.health + amount)
+        
     def damage(self, amount: int):
         """Damages the player by a given amount."""
-        for i in range(amount):
-            if self.health >= 0:
-                self.health -= 1
-
+        self.health = max(0, self.health - amount)
+        
     def get_inventory(self):
         """Returns all items in the player's inventory."""
         return self.inventory
 
     def get_inventory_names(self):
         """Returns all names of the items in the player's inventory."""
-        list_ = []
-        for i in self.inventory:
-            list_.append(i.name)
-        return list_
+        return [i.name for i in self.inventory]
 
     def give(self, item):
         """Gives the player an item."""
